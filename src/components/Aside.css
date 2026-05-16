@@ -1,248 +1,211 @@
 /* ─────────────────────────────────────────
-   Aside / Sidebar — design tokens from color.md
+   Aside / Sidebar — Theme គូព្រេង (Gold & Purple)
 ───────────────────────────────────────── */
 
-:root {
-    /* Light mode tokens */
-    --sidebar-bg: #f5f8fb;
-    --sidebar-fg: #000000;
-    --sidebar-border: #ebebeb;
-    --sidebar-accent: #ebebeb;
-    --sidebar-accent-fg: #000000;
-    --sidebar-primary: #000000;
-    --sidebar-primary-fg: #ffffff;
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;500;600;700&family=Moul&display=swap');
 
-    --color-primary: #7033ff;
-    --color-primary-fg: #ffffff;
-    --color-accent: #e2ebff;
-    --color-accent-fg: #1e69dc;
-    --color-muted: #f5f5f5;
-    --color-muted-fg: #525252;
-    --color-border: #e7e7ee;
-    --color-card: #fdfdfd;
-    --color-destructive: #e54b4f;
+:root {
+    --kp-gold: #B0926A;
+    --kp-purple: #3D2461;
+    --kp-bg: #FFFDF9;
+    --kp-sidebar-border: rgba(176, 146, 106, 0.2);
+    --kp-text: #4A3E3D;
 }
 
-/* ── Aside shell ── */
+/* ── Aside Shell ── */
 .aside {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
-    background: var(--sidebar-bg);
-    border-right: 1px solid var(--sidebar-border);
-    font-family: 'Noto Sans Khmer', 'DM Sans', sans-serif;
+    height: 100vh;
+    background: linear-gradient(180deg, #FFFDF9 0%, #FAF4E8 100%);
+    border-right: 1px solid var(--kp-sidebar-border);
+    font-family: 'Kantumruy Pro', sans-serif;
+    padding: 0 16px;
+    box-sizing: border-box;
 }
 
-/* ── Wedding progress card ── */
-.aside-progress-wrap {
-    padding: 20px 16px 12px;
-}
-
-.aside-progress-card {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding: 14px;
-    border-radius: 16px;
-    background: linear-gradient(148deg, #eae9f8 0%, #f3e8f0 100%);
-    border: 1px solid var(--sidebar-border);
-}
-
-.aside-progress-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    background: linear-gradient(145deg, #8686d9 0%, #a78bfa 100%);
+/* ── Brand Logo ── */
+.aside-brand {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    margin-bottom: 2px;
+    height: 85px; /* ស្មើនឹងកម្ពស់ Header */
+    border-bottom: 1px dashed var(--kp-sidebar-border);
+    margin-bottom: 20px;
+}
+
+.brand-logo-text {
+    font-family: 'Moul', serif;
+    font-size: 24px;
+    color: var(--kp-purple);
+    text-shadow: 1px 1px 0px #fff;
+    letter-spacing: 1px;
+}
+
+/* ── Progress Card (ប្រអប់បង្ហាញស្ថានភាពមង្គលការ) ── */
+.aside-progress-wrap {
+    padding: 6px 0;
+    margin-bottom: 20px;
+}
+
+.aside-progress-card {
+    background: #ffffff;
+    border: 1px solid var(--kp-sidebar-border);
+    border-radius: 18px;
+    padding: 16px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(176, 146, 106, 0.06);
+    text-align: center;
+}
+
+.aside-progress-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(176, 146, 106, 0.1);
+    color: var(--kp-gold);
+    border-radius: 50%;
+    margin-bottom: 10px;
 }
 
 .aside-progress-label {
     font-size: 11px;
-    color: var(--color-muted-fg);
-    margin: 0;
+    font-weight: 700;
+    color: var(--kp-gold);
+    text-transform: uppercase;
+    margin: 0 0 4px 0;
 }
 
 .aside-progress-name {
-    font-size: 13px;
-    font-weight: 600;
-    color: #1a1a2e;
-    margin: 0;
+    font-family: 'Moul', serif;
+    font-size: 14px;
+    color: var(--kp-purple);
+    margin: 0 0 6px 0;
+    line-height: 1.4;
 }
 
 .aside-progress-date {
-    font-size: 11px;
-    color: var(--color-muted-fg);
-    margin: 0;
+    font-size: 12px;
+    color: #7A6E6D;
+    margin: 0 0 14px 0;
+    font-weight: 500;
 }
 
 .aside-progress-bar-track {
     width: 100%;
-    height: 5px;
-    background: #d8d6f0;
-    border-radius: 999px;
-    margin-top: 2px;
+    height: 6px;
+    background: #F0EAE1;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 6px;
 }
 
 .aside-progress-bar-fill {
     height: 100%;
-    border-radius: 999px;
-    background: linear-gradient(90deg, #8686d9 0%, #a78bfa 100%);
+    background: linear-gradient(90deg, var(--kp-gold) 0%, var(--kp-purple) 100%);
+    border-radius: 10px;
+    transition: width 0.4s ease;
 }
 
 .aside-progress-pct {
     font-size: 11px;
-    font-weight: 600;
-    color: var(--color-primary);
+    font-weight: 700;
+    color: var(--kp-purple);
     margin: 0;
+    text-align: right;
 }
 
-/* ── Nav sections ── */
-.aside-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding: 4px 10px;
-    flex: 1;
-}
-
+/* ── Nav Links ── */
+.aside-nav, 
 .aside-nav-secondary {
     display: flex;
     flex-direction: column;
-    gap: 2px;
-    padding: 4px 10px 20px;
+    gap: 6px;
+}
+
+.aside-nav-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 12px 14px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.25s ease;
+}
+
+.aside-nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    margin-right: 12px;
+    transition: all 0.25s ease;
+    background: #ffffff;
+    border: 1px solid rgba(176, 146, 106, 0.15);
+    color: #6E5D4F;
+}
+
+.aside-nav-label {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--kp-text);
+}
+
+/* ── Hover State ── */
+.aside-nav-item:hover {
+    background: rgba(176, 146, 106, 0.08);
+}
+
+.aside-nav-item:hover .aside-nav-label {
+    color: var(--kp-purple);
+}
+
+/* ── Active State (ប៊ូតុងដែលកំពុងស្ថិតនៅ) ── */
+.aside-nav-item.active {
+    background: #ffffff;
+    border-color: var(--kp-sidebar-border);
+    box-shadow: 0 4px 12px rgba(176, 146, 106, 0.08);
+}
+
+.aside-nav-item.active .aside-nav-label {
+    color: var(--kp-purple);
+    font-weight: 700;
+}
+
+.aside-nav-item.active .aside-nav-icon {
+    background: var(--kp-purple);
+    color: #ffffff;
+    border-color: var(--kp-purple);
 }
 
 /* ── Divider ── */
 .aside-divider {
     height: 1px;
-    background: var(--sidebar-border);
-    margin: 8px 16px;
+    background: linear-gradient(90deg, transparent, var(--kp-sidebar-border), transparent);
+    margin: 20px 0;
 }
 
-/* ── Nav item ── */
-.aside-nav-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    padding: 8px 10px;
-    border-radius: 10px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    text-align: left;
-    font-family: inherit;
-    transition: background 0.15s;
-    text-decoration: none;
+.aside-nav-secondary {
+    margin-top: auto;
+    padding-bottom: 20px;
 }
 
-.aside-nav-item:hover {
-    background: var(--sidebar-accent);
+/* ── Logout Button ── */
+.logout-btn:hover .aside-nav-icon {
+    background: #FFEAEA;
+    color: #D32F2F;
+    border-color: #FFCCCC;
 }
 
-.aside-nav-item.active {
-    background: var(--color-primary);
-    box-shadow: 0 4px 14px rgba(112, 51, 255, 0.3);
-}
-
-.aside-nav-item.active:hover {
-    background: #5e28e0;
-}
-
-/* ── Nav icon ── */
-.aside-nav-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    background: var(--color-muted);
-    color: var(--color-muted-fg);
-    transition: background 0.15s;
-}
-
-.aside-nav-item.active .aside-nav-icon {
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-}
-
-/* Per-item icon colors */
-.aside-nav-item:not(.active) .aside-nav-icon.icon-purple {
-    background: #eae9f8;
-    color: #6b6bc4;
-}
-
-.aside-nav-item:not(.active) .aside-nav-icon.icon-green {
-    background: #f0fdf4;
-    color: #16a34a;
-}
-
-.aside-nav-item:not(.active) .aside-nav-icon.icon-orange {
-    background: #fff7ed;
-    color: #ea580c;
-}
-
-.aside-nav-item:not(.active) .aside-nav-icon.icon-fuchsia {
-    background: #fdf4ff;
-    color: #a21caf;
-}
-
-.aside-nav-item:not(.active) .aside-nav-icon.icon-rose {
-    background: #fff0f5;
-    color: #e11d48;
-}
-
-.aside-nav-item:not(.active) .aside-nav-icon.icon-slate {
-    background: #f8fafc;
-    color: #64748b;
-}
-
-/* ── Nav label ── */
-.aside-nav-label {
-    flex: 1;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--sidebar-fg);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.aside-nav-item.active .aside-nav-label {
-    color: var(--color-primary-fg);
-    font-weight: 600;
-}
-
-/* ── Badge ── */
-.aside-nav-badge {
-    font-size: 11px;
-    font-weight: 700;
-    padding: 1px 7px;
-    border-radius: 999px;
-    flex-shrink: 0;
-    background: var(--sidebar-accent);
-    color: var(--sidebar-accent-fg);
-}
-
-.aside-nav-item.active .aside-nav-badge {
-    background: rgba(255, 255, 255, 0.25);
-    color: #fff;
-}
-
-/* ── Chevron ── */
-.aside-nav-chevron {
-    flex-shrink: 0;
-    color: rgba(255, 255, 255, 0.6);
-    display: none;
-}
-
-.aside-nav-item.active .aside-nav-chevron {
-    display: flex;
+.logout-btn:hover .aside-nav-label {
+    color: #D32F2F;
 }

@@ -14,7 +14,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/events");
+    navigate("/dashboard");
   };
 
   return (
